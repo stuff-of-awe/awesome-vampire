@@ -1,0 +1,96 @@
+// SPDX-License-Identifier: CC-BY-SA-4.0
+= Awesome Vampire
+:toc:
+
+A practical, community-curated starting point for the
+https://vprover.github.io/[Vampire theorem prover].
+
+Part of https://github.com/stuff-of-awe[Stuff of Awe]: resources for the wider
+mathematics, logic and formal-methods communities. This is an independent
+collection, not an official Vampire project.
+
+*Status:* starter collection. Initial resource review: 2026-11-01.
+Repository steward: https://github.com/hyperpolymath[hyperpolymath].
+Additional curators and contributions are welcome.
+
+== Start here
+
+* https://vprover.github.io/[Vampire project] — overview and links maintained by the project.
+* https://vprover.github.io/vampireGuide/[Online Vampire Guide] — the project's guide and access to its browser playground.
+* https://github.com/vprover/vampire[Source repository] — implementation, basic usage and development history.
+* https://github.com/vprover/vampire/releases[Releases] — obtain a version for your platform and retain its version information.
+* https://github.com/vprover/vampire/wiki/Source-Build-for-Users[Build from source] — upstream instructions when a suitable binary is unavailable.
+
+== Try a small proof
+
+The following original example expresses that every human is mortal, Socrates
+is human, and therefore Socrates is mortal. Save it as `socrates.p`:
+
+[source]
+----
+fof(humans_are_mortal, axiom, ! [X] : (human(X) => mortal(X))).
+fof(socrates_is_human, axiom, human(socrates)).
+fof(socrates_is_mortal, conjecture, mortal(socrates)).
+----
+
+With Vampire installed, use the invocation documented in its upstream README:
+
+[source,shell]
+----
+vampire socrates.p
+vampire --mode casc socrates.p
+----
+
+The second command uses portfolio mode. This example has been reviewed for
+logical intent but *has not been executed as part of this collection's initial
+publication*. Record your version and output when contributing a tested result.
+A timeout does not establish that a conjecture is false.
+
+== Problems, syntax and proof results
+
+* https://www.tptp.org/[TPTP World] — shared infrastructure for automated reasoning.
+* https://quickguide.tptp.org/[TPTP quick guide] — an introduction to problems, solutions and standards.
+* https://language.tptp.org/[TPTP language] — reference material for writing problem inputs.
+* https://tptp.tptp.org/[TPTP problem library] — problems for experimentation and evaluation.
+* https://tstp.tptp.org/[TSTP solution library] — published solution material.
+* https://szs.tptp.org/[SZS ontologies] — terminology for interpreting logical result statuses.
+* https://casc.tptp.org/[CASC] — competition context and evaluation resources.
+
+Distinguish a prover's reported result, its emitted proof and an independently
+checked certificate. Do not describe a workflow as independently verified
+without identifying its checker and what was checked. For benchmark comparisons,
+record the tool version, problem set, options, hardware and time/resource limits.
+
+== Learn and contribute
+
+* https://github.com/vprover/vampire/wiki[Developer wiki] — implementation and development guidance.
+* https://vprover.github.io/workshop.html[Vampire workshop] — research and community entry point, including previous editions.
+* https://github.com/vprover/vampire/issues[Upstream issues] — reports about Vampire itself; follow upstream reporting guidance.
+* https://github.com/stuff-of-awe/awesome-vampire/issues[Collection issues] — missing resources, corrections and suggestions for this list.
+
+== Relationship to ECHIDNA
+
+https://github.com/hyperpolymath/echidna[ECHIDNA] includes a Vampire backend kind
+and helped identify this collection's scope. Using ECHIDNA is not required.
+Its declaration is not a promise that a particular integration or installation
+has been tested by this list.
+
+See the https://github.com/stuff-of-awe/.github/blob/main/docs/collections/CATALOGUE.adoc[coverage ledger]
+for neighbouring prover and solver ecosystems.
+
+== Provenance and maintenance
+
+Descriptions and the example were written for this collection. The initial
+resource set comes from the Vampire project's website and README, and the TPTP
+World's own directory. No third-party awesome list was copied. An initial GitHub
+name search found no awesome-vampire repository; this is not an exhaustive
+claim about all existing community resources.
+
+Review links and descriptions quarterly when a curator is available, and
+record the date and substantive changes here. No scheduled automation is
+currently configured. Priorities are tested examples, proof-output walkthroughs,
+teaching resources and well-documented integrations.
+
+Read link:CONTRIBUTING.md[contribution guidance]. Original collection prose and
+examples are offered under https://creativecommons.org/licenses/by-sa/4.0/[CC BY-SA 4.0].
+Linked projects retain their own licences; this collection does not relicense them.
